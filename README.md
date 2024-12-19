@@ -1,4 +1,23 @@
-# React + TypeScript + Vite
+# Using the app - Genshin3
+
+Router has 6 pages 
+
+ZhongliType: A typing trainer with sound effects and visual flashes. Only allowed to write into the SearchBar if it maches the current sentence. 
+Clear Bar -> clears text and gives a new text input.
+
+Mondstadt: A display of characters from Mondstadt.
+
+Liyue: Database for storing accounts into Firebase with specific rules for email and password creation.
+
+Inazuma: empty.
+
+Sumeru: empty.
+
+Fontaine: empty.
+
+Natlan: empty.
+
+## React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
@@ -28,3 +47,6 @@ export default {
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+
+
