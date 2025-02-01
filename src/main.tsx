@@ -38,7 +38,7 @@ const router = createBrowserRouter([
     path: "/Natlan",
     element: <Natlan />,
   },
-]);
+],{basename: "/genshin3"});
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
