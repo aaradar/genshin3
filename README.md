@@ -1,5 +1,4 @@
 # Using the app - Genshin3
-test
 Router has 6 pages: 
 
 ZhongliType: A typing trainer with sound effects and visual flashes. Only allowed to write into the SearchBar if it maches the current sentence. 
