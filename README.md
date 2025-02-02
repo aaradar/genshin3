@@ -1,6 +1,9 @@
 # Using the app - Genshin3
 Added Jenkins webhook to run pipeline script on push. 
  
+
+new change 2
+
 Router has 6 pages: 
 
 ZhongliType: A typing trainer with sound effects and visual flashes. Only allowed to write into the SearchBar if it maches the current sentence. 
