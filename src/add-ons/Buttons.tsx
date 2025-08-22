@@ -22,10 +22,10 @@ export function Buttons() {
   const [isPlaying, setIsPlaying] = useState(false);
 
   const handleButtonClick = (soundFile: string) => {
-    if (isPlaying) return; // Ignore if a sound is already playing
+    if (isPlaying) return; // Ignore ALL inputs while playing
 
     const audio = audioRef.current;
-    audio.src = soundFile; // reuse the same element
+    audio.src = soundFile;
     audio.currentTime = 0;
 
     setIsPlaying(true);
