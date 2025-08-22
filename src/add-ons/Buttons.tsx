@@ -1,67 +1,62 @@
 // src/Side Pages/Button.js
 
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./Buttons.module.scss";
-import RaidenSound from "../sounds/Raiden.wav"; // Import Raiden.wav
-import OrderSound from "../sounds/Order.wav"; // Import Order.wav
-import XiaoSound from "../sounds/xiao.wav"; // Import Order.wav
-import AyatoSound from "../sounds/pace.wav"; // Import Order.wav
-import WriothesleySound from "../sounds/home.wav"; // Import Order.wav
-import RagnvindrSound from "../sounds/retribution.wav"; // Import Order.wav
-import ChatSound from "../sounds/chat.wav"; // Import chat.wav
-import WandererSound from "../sounds/Sharp.wav"; // Import chat.wav
-import AyakaSound from "../sounds/soRude.wav"; // Import chat.wav
-import JeanSound from "../sounds/one.wav"; // Import chat.wav
-import SucroseSound from "../sounds/test6308.wav"; // Import chat.wav
-import ShenheSound from "../sounds/solo.wav"; // Import chat.wav
-import AratakiSound from "../sounds/numero.wav"; // Import chat.wav
-import KaeyaSound from "../sounds/frostbite.wav"; // Import chat.wav
+import RaidenSound from "../sounds/Raiden_Shogun_Rain.wav";
+import OrderSound from "../sounds/VO_Zhongli_After_the_Rain.wav";
+import XiaoSound from "../sounds/VO_Xiao_After_the_Rain.wav";
+import AyatoSound from "../sounds/VO_Kamisato_Ayato_When_It_Rains.wav";
+import WriothesleySound from "../sounds/VO_Wriothesley_When_It_Rains.wav";
+import RagnvindrSound from "../sounds/VO_Diluc_When_It_Rains_-_Cleansing.wav";
+import ChatSound from "../sounds/Neuvillette_Rain.wav";
+import WandererSound from "../sounds/VO_Wanderer_When_It_Rains.wav";
+import AyakaSound from "../sounds/VO_Kamisato_Ayaka_When_It_Rains.wav";
+import JeanSound from "../sounds/VO_Jean_When_It_Rains.wav";
+import SucroseSound from "../sounds/VO_Sucrose_When_It_Rains.wav";
+import ShenheSound from "../sounds/VO_Shenhe_When_It_Rains.wav";
+import AratakiSound from "../sounds/VO_Arataki_Itto_When_It_Rains.wav";
+import KaeyaSound from "../sounds/VO_Kaeya_When_It_Rains.wav";
 
 export function Buttons() {
+  const audioRef = useRef(new Audio());
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handleButtonClick = (soundFile: string) => {
+    if (isPlaying) return; // Ignore if a sound is already playing
+
+    const audio = audioRef.current;
+    audio.src = soundFile; // reuse the same element
+    audio.currentTime = 0;
+
+    setIsPlaying(true);
+    audio.play();
+
+    audio.onended = () => {
+      setIsPlaying(false);
+    };
+  };
+
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
-      if (event.key === "w" || event.key === "W") {
-        handleButtonClick(OrderSound);
-      } else if (event.key === "q" || event.key === "Q") {
-        handleButtonClick(RaidenSound);
-      } else if (event.key === "e" || event.key === "E") {
-        handleButtonClick(XiaoSound);
-      } else if (event.key === "r" || event.key === "R") {
-        handleButtonClick(AyatoSound);
-      } else if (event.key === "t" || event.key === "T") {
-        handleButtonClick(WriothesleySound);
-      } else if (event.key === "y" || event.key === "Y") {
-        handleButtonClick(RagnvindrSound);
-      } else if (event.key === "u" || event.key === "U") {
-        handleButtonClick(ChatSound);
-      } else if (event.key === "i" || event.key === "I") {
-        handleButtonClick(WandererSound);
-      } else if (event.key === "o" || event.key === "O") {
-        handleButtonClick(AyakaSound);
-      } else if (event.key === "p" || event.key === "P") {
-        handleButtonClick(JeanSound);
-      } else if (event.key === "a" || event.key === "A") {
-        handleButtonClick(SucroseSound);
-      } else if (event.key === "s" || event.key === "S") {
-        handleButtonClick(ShenheSound);
-      } else if (event.key === "d" || event.key === "D") {
-        handleButtonClick(AratakiSound);
-      } else if (event.key === "f" || event.key === "F") {
-        handleButtonClick(KaeyaSound);
-      }
+      if (event.key === "w" || event.key === "W") handleButtonClick(OrderSound);
+      if (event.key === "q" || event.key === "Q") handleButtonClick(RaidenSound);
+      if (event.key === "e" || event.key === "E") handleButtonClick(XiaoSound);
+      if (event.key === "r" || event.key === "R") handleButtonClick(AyatoSound);
+      if (event.key === "t" || event.key === "T") handleButtonClick(WriothesleySound);
+      if (event.key === "y" || event.key === "Y") handleButtonClick(RagnvindrSound);
+      if (event.key === "u" || event.key === "U") handleButtonClick(ChatSound);
+      if (event.key === "i" || event.key === "I") handleButtonClick(WandererSound);
+      if (event.key === "o" || event.key === "O") handleButtonClick(AyakaSound);
+      if (event.key === "p" || event.key === "P") handleButtonClick(JeanSound);
+      if (event.key === "a" || event.key === "A") handleButtonClick(SucroseSound);
+      if (event.key === "s" || event.key === "S") handleButtonClick(ShenheSound);
+      if (event.key === "d" || event.key === "D") handleButtonClick(AratakiSound);
+      if (event.key === "f" || event.key === "F") handleButtonClick(KaeyaSound);
     };
 
     document.addEventListener("keypress", handleKeyPress);
-
-    return () => {
-      document.removeEventListener("keypress", handleKeyPress);
-    };
+    return () => document.removeEventListener("keypress", handleKeyPress);
   }, []);
-
-  const handleButtonClick = (soundFile: string) => {
-    const audio = new Audio(soundFile); // Create an Audio object using the selected sound file
-    audio.play(); // Play the sound
-  };
 
   return (
     <div className={styles.ButtonsColumn}>

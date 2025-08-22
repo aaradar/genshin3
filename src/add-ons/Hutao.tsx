@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef } from "react";
 
-import OrderSound from "../sounds/sillychurl.wav";
+import OrderSound from "../sounds/Order.wav";
 import ChevreuseSound from "../sounds/crimes.wav";
 import styles from "./Hutao.module.scss";
 

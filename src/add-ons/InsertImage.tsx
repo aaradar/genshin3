@@ -89,12 +89,12 @@ export function InsertImage() {
     }
     if (!emailRegex.test(email)) {
       errors.push(
-        "YOU HAVE BROKEN THE BRO CAN'T WRITE A PROPER EMAIL CONTRACT"
+        "YOU HAVE BROKEN THE WRITE A PROPER EMAIL CONTRACT"
       );
     }
     if (!nameRegex.test(name)) {
       errors.push(
-        "YOU HAVE BROKEN THE OUR NAMES ONLY HAVE LETTERS AND SPACES CONTRACT"
+        "YOU HAVE BROKEN THE NAMES ONLY HAVE LETTERS AND SPACES CONTRACT"
       );
     }
 
